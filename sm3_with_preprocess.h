@@ -23,8 +23,8 @@
 * Parameters:
     id[in]       user id
     id_len[in]   user id length, size in bytes
-	pub_key[in]  SM2 public key
-	digest[out]  digest value on Z
+    pub_key[in]  SM2 public key
+    digest[out]  digest value on Z
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -38,19 +38,19 @@
 **************************************************/
 int sm3_digest_z(const unsigned char *id,
                  const int id_len,
-				 const unsigned char *pub_key,
-				 unsigned char *z_digest);
+		 const unsigned char *pub_key,
+		 unsigned char *z_digest);
 
 /**************************************************
 * Name: sm3_digest_with_preprocess
 * Function: compute SM3 digest with preprocess
 * Parameters:
     messgae[in]      input message
-	message_len[in]  input message length, size in bytes
+    message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
-	pub_key[in]      SM2 public key
-	digest[out]      digest value of SM3 preprocess
+    pub_key[in]      SM2 public key
+    digest[out]      digest value of SM3 preprocess
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -65,8 +65,8 @@ int sm3_digest_z(const unsigned char *id,
 int sm3_digest_with_preprocess(const unsigned char *messgae,
                                const int message_len,
                                const unsigned char *id,
-							   const int id_len,
-							   const unsigned char *pub_key,
+			       const int id_len,
+			       const unsigned char *pub_key,
                                unsigned char *digest);
 
 #ifdef  __cplusplus
