@@ -25,12 +25,12 @@ typedef struct sm2_sig_structure {
     random number k given in GM/T 0003.5-2012
 * Parameters:
     messgae[in]      input message
-	message_len[in]  input message length, size in bytes
+    message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
-	pub_key[in]      SM2 public key
-	pri_key[in]      SM2 private key
-	sm2_sig[out]     SM2 signature
+    pub_key[in]      SM2 public key
+    pri_key[in]      SM2 private key
+    sm2_sig[out]     SM2 signature
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -48,24 +48,24 @@ typedef struct sm2_sig_structure {
 4. "pri_key" is a octet string of 32 byte length.
 **************************************************/
 int sm2_sign_data_test(const unsigned char *message,
-	                   const int message_len,
-					   const unsigned char *id,
-					   const int id_len,
-					   const unsigned char *pub_key,
-					   const unsigned char *pri_key,
-					   SM2_SIGNATURE_STRUCT *sm2_sig);
+	               const int message_len,
+		       const unsigned char *id,
+		       const int id_len,
+		       const unsigned char *pub_key,
+		       const unsigned char *pri_key,
+		       SM2_SIGNATURE_STRUCT *sm2_sig);
 
 /**************************************************
 * Name: sm2_sign_data
 * Function: compute SM2 digest signature
 * Parameters:
     messgae[in]      input message
-	message_len[in]  input message length, size in bytes
+    message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
-	pub_key[in]      SM2 public key
-	pri_key[in]      SM2 private key
-	sm2_sig[out]     SM2 signature
+    pub_key[in]      SM2 public key
+    pri_key[in]      SM2 private key
+    sm2_sig[out]     SM2 signature
 * Return value:
     0:                function executes successfully
     any other value:  an error occurs
@@ -80,22 +80,22 @@ int sm2_sign_data_test(const unsigned char *message,
 **************************************************/
 int sm2_sign_data(const unsigned char *message,
                   const int message_len,
-				  const unsigned char *id,
-				  const int id_len,
-				  const unsigned char *pub_key,
-				  const unsigned char *pri_key,
-				  SM2_SIGNATURE_STRUCT *sm2_sig);
+		  const unsigned char *id,
+		  const int id_len,
+		  const unsigned char *pub_key,
+		  const unsigned char *pri_key,
+		  SM2_SIGNATURE_STRUCT *sm2_sig);
 
 /**************************************************
 * Name: sm2_verify_sig
 * Function: verify SM2 digest signature
 * Parameters:
     messgae[in]      input message
-	message_len[in]  input message length, size in bytes
+    message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
-	pub_key[in]      SM2 public key
-	sm2_sig[out]     SM2 signature
+    pub_key[in]      SM2 public key
+    sm2_sig[out]     SM2 signature
 * Return value:
     0:                signature pass verification
     any other value:  an error occurs
@@ -106,10 +106,10 @@ int sm2_sign_data(const unsigned char *message,
 **************************************************/
 int sm2_verify_sig(const unsigned char *message,
                    const int message_len,
-				   const unsigned char *id,
-				   const int id_len,
-				   const unsigned char *pub_key,
-				   SM2_SIGNATURE_STRUCT *sm2_sig);
+		   const unsigned char *id,
+		   const int id_len,
+		   const unsigned char *pub_key,
+		   SM2_SIGNATURE_STRUCT *sm2_sig);
 
 #ifdef  __cplusplus
   }
