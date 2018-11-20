@@ -19,27 +19,27 @@ int main(void)
 	printf("/*********************************************************/\n");
 	if ( error_code = test_with_input_defined_in_standard() )
 	{
-		printf("Test SM2 sign data and verify signature with input defined in standard failed!\n");
-		return error_code;
+	   printf("Test SM2 sign data and verify signature with input defined in standard failed!\n");
+	   return error_code;
 	}
 	else
 	{
-		printf("Test SM2 sign data and verify signature with input defined in standard succeeded!\n");
+	   printf("Test SM2 sign data and verify signature with input defined in standard succeeded!\n");
 	}
 	
 	printf("\n/*********************************************************/\n");
 	if ( error_code = test_sm2_sign_and_verify() )
 	{
-		printf("Test create SM2 key pair, sign data and verify signature failed!\n");
-		return error_code;
+	   printf("Test create SM2 key pair, sign data and verify signature failed!\n");
+	   return error_code;
 	}
 	else
 	{
-		printf("Test create SM2 key pair, sign data and verify signature succeeded!\n");
+	   printf("Test create SM2 key pair, sign data and verify signature succeeded!\n");
 	}
 
 #if defined(_WIN32) || defined(_WIN64)
-  system("pause");
+        system("pause");
 #endif
 	return 0;
 }
