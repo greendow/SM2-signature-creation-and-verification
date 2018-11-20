@@ -35,61 +35,61 @@ int sm2_create_key_pair(SM2_KEY_PAIR *key_pair)
 	bn_y = BN_CTX_get(ctx);
 	if ( !(bn_y) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 
 	if ( !(group = EC_GROUP_new_by_curve_name(NID_sm2)) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 	if ( !(bn_order = EC_GROUP_get0_order(group)) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 	if ( !(ec_pt = EC_POINT_new(group)) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 
 	error_code = CREATE_SM2_KEY_PAIR_FAIL;
 	do
 	{
-		if ( !(BN_rand_range(bn_d, bn_order)) )
-		{
-			goto clean_up;
-		}	
+	   if ( !(BN_rand_range(bn_d, bn_order)) )
+	   {
+	      goto clean_up;
+	   }	
 	} while ( BN_is_zero(bn_d) );
 
 	if ( !(EC_POINT_mul(group, ec_pt, bn_d, NULL, NULL, ctx)) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 	if ( !(EC_POINT_get_affine_coordinates_GFp(group,
 	                                           ec_pt,
-											   bn_x,
-											   bn_y,
-											   ctx)) )
+						   bn_x,
+						   bn_y,
+						   ctx)) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}	
 
 	if ( BN_bn2binpad(bn_d,
 	                  key_pair->pri_key,
-					  sizeof(key_pair->pri_key)) != sizeof(key_pair->pri_key) )
+			  sizeof(key_pair->pri_key)) != sizeof(key_pair->pri_key) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_x,
 	                  pub_key_x,
-					  sizeof(pub_key_x)) != sizeof(pub_key_x) )
+			  sizeof(pub_key_x)) != sizeof(pub_key_x) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 	if ( BN_bn2binpad(bn_y,
 	                  pub_key_y,
-					  sizeof(pub_key_y)) != sizeof(pub_key_y) )
+			  sizeof(pub_key_y)) != sizeof(pub_key_y) )
 	{
-		goto clean_up;
+	   goto clean_up;
 	}
 
 	key_pair->pub_key[0] = 0x4;
@@ -100,18 +100,18 @@ int sm2_create_key_pair(SM2_KEY_PAIR *key_pair)
 clean_up:
     if (ctx)
 	{
-		BN_CTX_end(ctx);
-		BN_CTX_free(ctx);
+	   BN_CTX_end(ctx);
+	   BN_CTX_free(ctx);
 	}
 	
 	if (group)
 	{
-		EC_GROUP_free(group);
+	   EC_GROUP_free(group);
 	}
 
 	if (ec_pt)
 	{
-		EC_POINT_free(ec_pt);
+	   EC_POINT_free(ec_pt);
 	}
 
 	return error_code;
