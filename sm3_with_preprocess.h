@@ -7,7 +7,7 @@
     preprocess functions
 * Note: SM3 digest with preprocess instead of "pure" 
     SM3 digest is used as one input item in computation 
-	of SM2 signature.
+    of SM2 signature.
 **************************************************/
 
 #ifndef HEADER_SM3_DIGEST_WTIH_PREPROCESS_COMPUTATION_H
@@ -45,7 +45,7 @@ int sm3_digest_z(const unsigned char *id,
 * Name: sm3_digest_with_preprocess
 * Function: compute SM3 digest with preprocess
 * Parameters:
-    messgae[in]      input message
+    message[in]      input message
     message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
@@ -62,7 +62,7 @@ int sm3_digest_z(const unsigned char *id,
    is a concatenation of 04 || X || Y. X and Y both are 
    SM2 public key coordinates of 32-byte length.
 **************************************************/
-int sm3_digest_with_preprocess(const unsigned char *messgae,
+int sm3_digest_with_preprocess(const unsigned char *message,
                                const int message_len,
                                const unsigned char *id,
 			       const int id_len,
