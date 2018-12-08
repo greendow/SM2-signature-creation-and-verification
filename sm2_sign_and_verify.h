@@ -24,7 +24,7 @@ typedef struct sm2_sig_structure {
 * Function: compute SM2 signature with a fixed internal 
     random number k given in GM/T 0003.5-2012
 * Parameters:
-    messgae[in]      input message
+    message[in]      input message
     message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
@@ -57,9 +57,9 @@ int sm2_sign_data_test(const unsigned char *message,
 
 /**************************************************
 * Name: sm2_sign_data
-* Function: compute SM2 digest signature
+* Function: compute SM2 signature
 * Parameters:
-    messgae[in]      input message
+    message[in]      input message
     message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
@@ -88,16 +88,16 @@ int sm2_sign_data(const unsigned char *message,
 
 /**************************************************
 * Name: sm2_verify_sig
-* Function: verify SM2 digest signature
+* Function: verify SM2 signature
 * Parameters:
-    messgae[in]      input message
+    message[in]      input message
     message_len[in]  input message length, size in bytes
     id[in]           user id
     id_len[in]       user id length, size in bytes
     pub_key[in]      SM2 public key
     sm2_sig[out]     SM2 signature
 * Return value:
-    0:                signature pass verification
+    0:                signature passes verification
     any other value:  an error occurs
 * Notes:
 1. "pub_key" is a octet string of 65 byte length. It 
