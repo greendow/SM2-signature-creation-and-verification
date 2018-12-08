@@ -79,7 +79,7 @@ int sm3_digest_z(const unsigned char *id,
 }
 
 /*********************************************************/
-int sm3_digest_with_preprocess(const unsigned char *messgae,
+int sm3_digest_with_preprocess(const unsigned char *message,
                                const int message_len,
                                const unsigned char *id,
 			       const int id_len,
@@ -112,7 +112,7 @@ int sm3_digest_with_preprocess(const unsigned char *messgae,
 	}
         EVP_DigestInit_ex(md_ctx, md, NULL);
         EVP_DigestUpdate(md_ctx, z_digest, sizeof(z_digest));
-	EVP_DigestUpdate(md_ctx, messgae, message_len);
+	EVP_DigestUpdate(md_ctx, message, message_len);
         EVP_DigestFinal_ex(md_ctx, digest, NULL);
         EVP_MD_CTX_free(md_ctx);
 	return 0;
